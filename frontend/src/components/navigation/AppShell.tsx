@@ -33,28 +33,24 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
-      <div>
-        <NavigationBar onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
-        <BreakingTicker />
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+      <NavigationBar onToggleSidebar={() => setSidebarCollapsed(!sidebarCollapsed)} />
+      <BreakingTicker />
 
-        <div className="flex w-full">
-          {/* Collapsible Left Sidebar (Hidden on small mobile screens) */}
-          <div className="hidden md:block">
-            <Sidebar
-              collapsed={sidebarCollapsed}
-              onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-            />
-          </div>
-
-          {/* Main Content Area */}
-          <main className="flex-1 min-w-0 px-3 py-4 sm:px-5 lg:px-6 max-w-[1600px] mx-auto">
-            {children}
-          </main>
+      <div className="flex w-full flex-1">
+        {/* Collapsible Left Sidebar (Hidden on small mobile screens) */}
+        <div className="hidden md:block">
+          <Sidebar
+            collapsed={sidebarCollapsed}
+            onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+          />
         </div>
-      </div>
 
-      <Footer />
+        {/* Main Content Area */}
+        <main className="flex-1 min-w-0 px-3 py-4 sm:px-5 lg:px-6 max-w-[1600px] mx-auto">
+          {children}
+        </main>
+      </div>
     </div>
   );
 };
