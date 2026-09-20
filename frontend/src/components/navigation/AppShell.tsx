@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { NavigationBar } from '@/components/navigation/NavigationBar';
+import { LandingHeader } from '@/components/navigation/LandingHeader';
 import { BreakingTicker } from '@/components/navigation/BreakingTicker';
 import { Footer } from '@/components/navigation/Footer';
 import { Sidebar } from '@/components/navigation/Sidebar';
@@ -11,7 +13,24 @@ interface AppShellProps {
 }
 
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
+  const pathname = usePathname();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+  const isLandingPage = pathname === '/' || pathname === '/landing';
+
+  if (isLandingPage) {
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
+        <div>
+          <LandingHeader />
+          <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+            {children}
+          </main>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col justify-between">
@@ -39,3 +58,4 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
     </div>
   );
 };
+
