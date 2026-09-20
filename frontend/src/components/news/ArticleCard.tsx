@@ -31,7 +31,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onOpenAskAI }
     if (onOpenAskAI) onOpenAskAI(article);
   };
 
-  return (
+
   return (
     <GlassCard className="flex flex-col justify-between overflow-hidden p-0 group border border-slate-200/90 bg-white shadow-xs hover:shadow-lg hover:border-indigo-300 rounded-xl">
       {/* Thumbnail */}

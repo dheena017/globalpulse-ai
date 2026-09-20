@@ -3,12 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Radio, Sparkles, BookOpen, ShieldCheck, Compass, Layers, Menu, Moon, Sun, Headphones } from 'lucide-react';
+import { Globe, Search, Radio, Sparkles, BookOpen, ShieldCheck, Compass, Layers, Menu, Moon, Sun, Headphones, PanelLeft } from 'lucide-react';
 import { UserMenuDropdown } from '@/components/auth/UserMenuDropdown';
 import { CommandPalette } from './CommandPalette';
 import { MobileMenu } from './MobileMenu';
 
-export const NavigationBar: React.FC = () => {
+interface NavigationBarProps {
+  onToggleSidebar?: () => void;
+}
+
+export const NavigationBar: React.FC<NavigationBarProps> = ({ onToggleSidebar }) => {
   const pathname = usePathname();
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,9 +42,19 @@ export const NavigationBar: React.FC = () => {
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/90 backdrop-blur-2xl shadow-xs">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-3 py-1.5 sm:px-5">
-          {/* Logo */}
-          <div className="flex items-center gap-4">
+        <div className="w-full flex items-center justify-between px-3 py-1.5 sm:px-5">
+          {/* Logo & Sidebar Toggle */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {onToggleSidebar && (
+              <button
+                onClick={onToggleSidebar}
+                className="hidden md:flex items-center justify-center h-7 w-7 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-indigo-600 transition-colors shadow-xs"
+                title="Toggle Sidebar (⌘B)"
+              >
+                <PanelLeft className="h-4 w-4" />
+              </button>
+            )}
+
             <Link href="/" className="flex items-center gap-2 group">
               <div className="relative flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-tr from-indigo-600 via-cyan-500 to-purple-600 shadow-sm shadow-indigo-500/20 group-hover:scale-105 transition-transform">
                 <Globe className="h-4 w-4 text-white" />
@@ -55,7 +69,7 @@ export const NavigationBar: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-0.5">
+            <nav className="hidden xl:flex items-center gap-0.5 ml-2">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
