@@ -199,7 +199,7 @@ async def get_all_news(force_refresh: bool = False) -> List[Article]:
             return cached
 
     fetch_start = time.perf_counter()
-    print(f"\033[2m[{time.strftime('%H:%M:%S')}]\033[0m \033[96m\033[1m[INGESTION]\033[0m \033[97mStarting parallel sync across {len(TRUSTED_FEEDS)} accredited wire feeds...\033[0m", flush=True)
+    print(f"\033[2m[{time.strftime('%I:%M:%S %p')}]\033[0m \033[96m\033[1m[INGESTION]\033[0m \033[97mStarting parallel sync across {len(TRUSTED_FEEDS)} accredited wire feeds...\033[0m", flush=True)
 
     articles: List[Article] = []
     seen_ids = set()
@@ -254,7 +254,7 @@ async def get_all_news(force_refresh: bool = False) -> List[Article]:
         a.is_featured = True
 
     duration_ms = (time.perf_counter() - fetch_start) * 1000
-    print(f"\033[2m[{time.strftime('%H:%M:%S')}]\033[0m \033[92m\033[1m[INGESTION]\033[0m \033[92m✓ Normalized and indexed {len(articles)} live articles \033[2m(took {duration_ms:5.1f}ms)\033[0m", flush=True)
+    print(f"\033[2m[{time.strftime('%I:%M:%S %p')}]\033[0m \033[92m\033[1m[INGESTION]\033[0m \033[92m✓ Normalized and indexed {len(articles)} live articles \033[2m(took {duration_ms:5.1f}ms)\033[0m", flush=True)
 
     # Cache for 5 minutes
     global_cache.set(cache_key, articles, ttl_seconds=300)

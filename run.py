@@ -124,7 +124,7 @@ def stream_process_output(pipe, prefix, color):
             if any(pat in clean_line for pat in IGNORE_PATTERNS):
                 continue
 
-            ts = datetime.datetime.now().strftime("%H:%M:%S")
+            ts = datetime.datetime.now().strftime("%I:%M:%S %p")
 
             # Human-friendly rewrites for standard framework messages
             if "Starting..." in clean_line:

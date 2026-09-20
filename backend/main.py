@@ -56,7 +56,7 @@ def safe_print(text: str):
         print(text.encode("ascii", errors="replace").decode("ascii"), flush=True)
 
 def log_event(level: str, tag: str, message: str, color: str = C_CYAN):
-    ts = datetime.datetime.now().strftime("%H:%M:%S.%f")[:-3]
+    ts = datetime.datetime.now().strftime("%I:%M:%S %p")
     safe_print(f"{C_DIM}[{ts}]{C_RESET} {color}{C_BOLD}[{tag}]{C_RESET} {message}")
 
 @asynccontextmanager
@@ -192,13 +192,13 @@ async def telemetry_logging_middleware(request: Request, call_next):
         else:
             status = f"{C_BRIGHT_RED}{status_code} FAIL{C_RESET}"
 
-        ts = datetime.datetime.now().strftime("%H:%M:%S")
+        ts = datetime.datetime.now().strftime("%I:%M:%S %p")
         safe_print(f"{C_DIM}[{ts}]{C_RESET} {C_BRIGHT_CYAN}[USER ACTION]{C_RESET} {C_WHITE}{human_description:<56}{C_RESET} -> {status} \033[2m({timing})\033[0m")
 
         return response
     except Exception as exc:
         duration_ms = (time.perf_counter() - start_time) * 1000
-        ts = datetime.datetime.now().strftime("%H:%M:%S")
+        ts = datetime.datetime.now().strftime("%I:%M:%S %p")
         safe_print(f"{C_DIM}[{ts}]{C_RESET} {C_BRIGHT_RED}[ERROR]{C_RESET} {C_WHITE}{human_description}{C_RESET} -> {C_BRIGHT_RED}500 ERROR ({duration_ms:4.1f}ms): {exc}{C_RESET}")
         raise exc
 
