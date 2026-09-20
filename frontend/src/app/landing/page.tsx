@@ -102,40 +102,40 @@ export default function LandingPage() {
       {/* Features Grid */}
       <section className="space-y-8">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl font-extrabold text-white font-heading">Built for High-Velocity Global Observers</h2>
-          <p className="text-xs text-slate-400 mt-2">Every component is engineered to eliminate media echo chambers and deliver verified factual truth.</p>
+          <h2 className="text-3xl font-extrabold text-slate-900 font-heading">Built for High-Velocity Global Observers</h2>
+          <p className="text-xs text-slate-500 mt-2">Every component is engineered to eliminate media echo chambers and deliver verified factual truth.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((f, idx) => (
-            <GlassCard key={idx} className="space-y-3 p-6">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-800/80">
+            <GlassCard key={idx} className="space-y-3 p-6 bg-white border border-slate-200/90 shadow-sm hover:shadow-md">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100">
                 <f.icon className={`h-5 w-5 ${f.color}`} />
               </div>
-              <h3 className="text-base font-bold text-white font-heading">{f.title}</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">{f.desc}</p>
+              <h3 className="text-base font-bold text-slate-900 font-heading">{f.title}</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">{f.desc}</p>
             </GlassCard>
           ))}
         </div>
       </section>
 
       {/* Trusted Sources Carousel Banner */}
-      <section className="rounded-3xl border border-white/10 bg-slate-900/60 p-8 text-center">
-        <p className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-6 font-bold">
+      <section className="rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-sm">
+        <p className="text-xs font-mono uppercase tracking-widest text-slate-500 mb-6 font-bold">
           Strictly Ingesting Accredited Gold-Standard Outlets
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-sm font-bold text-slate-300 font-heading">
-          <span className="hover:text-cyan-400 transition-colors">Reuters Wire</span>
-          <span className="text-slate-600">•</span>
-          <span className="hover:text-cyan-400 transition-colors">Associated Press</span>
-          <span className="text-slate-600">•</span>
-          <span className="hover:text-cyan-400 transition-colors">BBC World</span>
-          <span className="text-slate-600">•</span>
-          <span className="hover:text-cyan-400 transition-colors">Nature Journal</span>
-          <span className="text-slate-600">•</span>
-          <span className="hover:text-cyan-400 transition-colors">Bloomberg</span>
-          <span className="text-slate-600">•</span>
-          <span className="hover:text-cyan-400 transition-colors">MIT Tech Review</span>
+        <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-sm font-bold text-slate-700 font-heading">
+          <span className="hover:text-indigo-600 transition-colors">Reuters Wire</span>
+          <span className="text-slate-300">•</span>
+          <span className="hover:text-indigo-600 transition-colors">Associated Press</span>
+          <span className="text-slate-300">•</span>
+          <span className="hover:text-indigo-600 transition-colors">BBC World</span>
+          <span className="text-slate-300">•</span>
+          <span className="hover:text-indigo-600 transition-colors">Nature Journal</span>
+          <span className="text-slate-300">•</span>
+          <span className="hover:text-indigo-600 transition-colors">Bloomberg</span>
+          <span className="text-slate-300">•</span>
+          <span className="hover:text-indigo-600 transition-colors">MIT Tech Review</span>
         </div>
       </section>
     </div>

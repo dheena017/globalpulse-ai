@@ -15,12 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="min-h-screen bg-slate-950 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
+    <html lang="en" className="light">
+      <body className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
         <div>
           <NavigationBar />
           <BreakingTicker />
-          <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <main className="mx-auto max-w-7xl px-3 py-5 sm:px-5 lg:px-6">
             {children}
           </main>
         </div>

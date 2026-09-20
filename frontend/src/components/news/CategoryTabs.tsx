@@ -38,8 +38,8 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
           onClick={() => onSelectCategory('all')}
           className={`flex items-center gap-1.5 rounded-2xl px-4 py-2 text-xs font-semibold whitespace-nowrap transition-all ${
             selectedCategory === 'all'
-              ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg shadow-indigo-500/25'
-              : 'border border-white/10 bg-slate-900/80 text-slate-300 hover:border-white/20 hover:text-white'
+              ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md shadow-indigo-500/20'
+              : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-xs'
           }`}
         >
           <Sparkles className="h-3.5 w-3.5" />
@@ -55,14 +55,14 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
               onClick={() => onSelectCategory(cat.slug)}
               className={`flex items-center gap-1.5 rounded-2xl px-3.5 py-2 text-xs font-semibold whitespace-nowrap transition-all ${
                 isSelected
-                  ? 'bg-indigo-600/30 text-cyan-300 border border-indigo-500/40 shadow-md'
-                  : 'border border-white/10 bg-slate-900/60 text-slate-400 hover:border-white/20 hover:text-slate-200'
+                  ? 'bg-indigo-50 text-indigo-700 border border-indigo-300 shadow-xs'
+                  : 'border border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
               }`}
             >
-              <Icon className="h-3.5 w-3.5" />
+              <Icon className="h-3.5 w-3.5 text-indigo-600" />
               <span>{cat.name.split(' ')[0]}</span>
               {cat.article_count > 0 && (
-                <span className="text-[10px] opacity-60 font-mono">({cat.article_count})</span>
+                <span className="text-[10px] opacity-70 font-mono">({cat.article_count})</span>
               )}
             </button>
           );
@@ -74,11 +74,11 @@ export const CategoryTabs: React.FC<CategoryTabsProps> = ({
         onClick={onToggleWiresOnly}
         className={`flex items-center gap-2 rounded-2xl px-3.5 py-2 text-xs font-semibold whitespace-nowrap transition-all border ${
           wiresOnly
-            ? 'border-emerald-500/50 bg-emerald-500/20 text-emerald-300 shadow-sm'
-            : 'border-white/10 bg-slate-900/60 text-slate-400 hover:border-white/20 hover:text-slate-300'
+            ? 'border-emerald-300 bg-emerald-50 text-emerald-800 shadow-xs'
+            : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
         }`}
       >
-        <span className={`h-2 w-2 rounded-full ${wiresOnly ? 'bg-emerald-400 animate-ping' : 'bg-slate-600'}`} />
+        <span className={`h-2 w-2 rounded-full ${wiresOnly ? 'bg-emerald-500 animate-ping' : 'bg-slate-400'}`} />
         <span>Top Wires Only (Reuters & AP)</span>
       </button>
     </div>

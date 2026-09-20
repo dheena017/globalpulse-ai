@@ -83,15 +83,15 @@ This intelligence dossier compiles verified reporting across Tier-1 news organiz
 
   return (
     <div className="space-y-8">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">Executive Dossier & Report Builder</h1>
-        <p className="text-xs text-slate-400 mt-1">Generate comprehensive intelligence briefings formatted for executive review</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">Executive Dossier & Report Builder</h1>
+        <p className="text-xs text-slate-500 mt-1">Generate comprehensive intelligence briefings formatted for executive review</p>
       </div>
 
       {/* Configuration Box */}
-      <GlassCard glowColor="indigo" className="p-6 space-y-6">
+      <GlassCard glowColor="indigo" className="p-6 space-y-6 bg-white border border-slate-200/90 shadow-md">
         <div>
-          <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block mb-2">
+          <label className="text-xs font-mono font-bold uppercase tracking-wider text-slate-600 block mb-2">
             1. Select Monitored Sectors
           </label>
           <div className="flex flex-wrap gap-2">
@@ -103,8 +103,8 @@ This intelligence dossier compiles verified reporting across Tier-1 news organiz
                   onClick={() => handleToggleCat(cat.slug)}
                   className={`rounded-2xl px-4 py-2 text-xs font-semibold transition-all ${
                     active
-                      ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-md'
-                      : 'border border-white/10 bg-slate-900/60 text-slate-400 hover:text-white'
+                      ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md shadow-indigo-500/20'
+                      : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
                   }`}
                 >
                   {cat.name}
@@ -114,16 +114,16 @@ This intelligence dossier compiles verified reporting across Tier-1 news organiz
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-white/10">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-100">
           <div>
-            <span className="text-xs font-mono text-slate-400 block">Output Format:</span>
-            <span className="text-xs font-bold text-cyan-300">Executive Markdown (.md) / Export Ready</span>
+            <span className="text-xs font-mono text-slate-500 block">Output Format:</span>
+            <span className="text-xs font-bold text-indigo-700">Executive Markdown (.md) / Export Ready</span>
           </div>
 
           <button
             onClick={handleGenerate}
             disabled={loading}
-            className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-6 py-3 text-xs font-bold text-white shadow-lg hover:opacity-95 transition-all"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:opacity-95 transition-all"
           >
             <Sparkles className="h-4 w-4" />
             <span>{loading ? 'Synthesizing Dossier...' : 'Generate Executive Dossier'}</span>
@@ -133,20 +133,20 @@ This intelligence dossier compiles verified reporting across Tier-1 news organiz
 
       {/* Generated Report Preview */}
       {generatedReport && (
-        <GlassCard className="space-y-4 p-6 font-mono text-xs">
-          <div className="flex items-center justify-between border-b border-white/10 pb-3 font-sans">
-            <span className="font-bold text-white text-sm">Generated Dossier Preview</span>
+        <GlassCard className="space-y-4 p-6 font-mono text-xs bg-white border border-slate-200/90 shadow-md">
+          <div className="flex items-center justify-between border-b border-slate-100 pb-3 font-sans">
+            <span className="font-bold text-slate-900 text-sm">Generated Dossier Preview</span>
             <div className="flex items-center gap-2">
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1.5 rounded-xl border border-white/10 bg-slate-800 px-3 py-1.5 text-xs text-slate-300 hover:text-white"
+                className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-100 shadow-xs"
               >
-                {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5" />}
+                {copied ? <Check className="h-3.5 w-3.5 text-emerald-600" /> : <Copy className="h-3.5 w-3.5" />}
                 <span>{copied ? 'Copied!' : 'Copy'}</span>
               </button>
               <button
                 onClick={handleDownload}
-                className="flex items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white shadow-md hover:bg-indigo-500"
+                className="flex items-center gap-1.5 rounded-xl bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white shadow-md hover:bg-indigo-700"
               >
                 <Download className="h-3.5 w-3.5" />
                 <span>Download .MD</span>
@@ -154,7 +154,7 @@ This intelligence dossier compiles verified reporting across Tier-1 news organiz
             </div>
           </div>
 
-          <pre className="whitespace-pre-wrap leading-relaxed text-slate-300 overflow-x-auto bg-slate-950/80 p-5 rounded-2xl border border-white/5">
+          <pre className="whitespace-pre-wrap leading-relaxed text-slate-800 overflow-x-auto bg-slate-50 p-5 rounded-2xl border border-slate-200">
             {generatedReport}
           </pre>
         </GlassCard>

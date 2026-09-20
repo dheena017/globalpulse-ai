@@ -3,7 +3,7 @@ import React from 'react';
 export const ShimmerSkeleton: React.FC<{ className?: string }> = ({ className = 'h-4 w-full' }) => {
   return (
     <div
-      className={`animate-pulse rounded-xl bg-slate-800/60 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent ${className}`}
+      className={`animate-pulse rounded-xl bg-slate-200/80 relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent ${className}`}
     />
   );
 };

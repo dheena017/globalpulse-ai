@@ -33,9 +33,9 @@ export default function WorldRegionsPage() {
 
   return (
     <div className="space-y-10">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">World Regions & Continental Intelligence</h1>
-        <p className="text-xs text-slate-400 mt-1">Geopolitical sentiment, policy developments, and regional wire dispatches</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">World Regions & Continental Intelligence</h1>
+        <p className="text-xs text-slate-500 mt-1">Geopolitical sentiment, policy developments, and regional wire dispatches</p>
       </div>
 
       {/* Global Sentiment Radar Overview */}
@@ -50,8 +50,8 @@ export default function WorldRegionsPage() {
               onClick={() => setSelectedRegion(reg.code)}
               className={`flex items-center gap-2 rounded-2xl px-5 py-2.5 text-xs font-bold transition-all ${
                 selectedRegion === reg.code
-                  ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg'
-                  : 'border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                  ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md shadow-indigo-500/20'
+                  : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
               }`}
             >
               <span>{reg.flag}</span>
@@ -61,9 +61,9 @@ export default function WorldRegionsPage() {
         </div>
 
         {activeRegionMeta && (
-          <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-            <p className="text-xs font-bold text-white mb-0.5">{activeRegionMeta.name} Region Overview</p>
-            <p className="text-xs text-slate-400">{activeRegionMeta.description} • Sentiment: <strong className="text-emerald-400">{activeRegionMeta.sentiment_summary}</strong></p>
+          <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <p className="text-xs font-bold text-slate-900 mb-0.5">{activeRegionMeta.name} Region Overview</p>
+            <p className="text-xs text-slate-500">{activeRegionMeta.description} • Sentiment: <strong className="text-emerald-700">{activeRegionMeta.sentiment_summary}</strong></p>
           </div>
         )}
 

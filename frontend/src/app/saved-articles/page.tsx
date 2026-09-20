@@ -29,18 +29,18 @@ export default function SavedArticlesPage() {
 
   return (
     <div className="space-y-8">
-      <div className="border-b border-white/10 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="border-b border-slate-200/80 pb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-black text-white font-heading">Saved Intelligence & Reading History</h1>
-          <p className="text-xs text-slate-400 mt-1">Personal bookmarks and tracked world intelligence library</p>
+          <h1 className="text-2xl font-black text-slate-900 font-heading">Saved Intelligence & Reading History</h1>
+          <p className="text-xs text-slate-500 mt-1">Personal bookmarks and tracked world intelligence library</p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex items-center gap-2 rounded-2xl bg-slate-900/80 p-1 border border-white/10">
+        <div className="flex items-center gap-2 rounded-2xl bg-white p-1 border border-slate-200 shadow-xs">
           <button
             onClick={() => setTab('bookmarks')}
             className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-              tab === 'bookmarks' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
+              tab === 'bookmarks' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <Bookmark className="h-3.5 w-3.5 fill-current" />
@@ -49,7 +49,7 @@ export default function SavedArticlesPage() {
           <button
             onClick={() => setTab('history')}
             className={`flex items-center gap-1.5 rounded-xl px-4 py-2 text-xs font-bold transition-all ${
-              tab === 'history' ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-400 hover:text-white'
+              tab === 'history' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-600 hover:text-slate-900'
             }`}
           >
             <History className="h-3.5 w-3.5" />
@@ -60,16 +60,16 @@ export default function SavedArticlesPage() {
 
       {/* List / Grid */}
       {currentList.length === 0 ? (
-        <div className="rounded-3xl border border-white/10 bg-slate-900/40 p-12 text-center backdrop-blur-xl space-y-3">
-          <p className="text-base font-bold text-white">
+        <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center space-y-3 shadow-sm">
+          <p className="text-base font-bold text-slate-900">
             {tab === 'bookmarks' ? 'No saved articles yet.' : 'No reading history recorded yet.'}
           </p>
-          <p className="text-xs text-slate-400 max-w-sm mx-auto">
+          <p className="text-xs text-slate-500 max-w-sm mx-auto">
             Click the bookmark icon on any news card or read articles to automatically build your intelligence dossier.
           </p>
           <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white hover:bg-indigo-500 transition-all"
+            href="/dashboard"
+            className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white hover:bg-indigo-700 transition-all shadow-sm"
           >
             <span>Explore Live World Feed</span>
             <ArrowRight className="h-4 w-4" />

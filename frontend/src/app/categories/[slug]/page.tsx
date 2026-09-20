@@ -24,9 +24,9 @@ export default function CategorySlugPage() {
 
   return (
     <div className="space-y-8">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading capitalize">{slug} Intelligence Feed</h1>
-        <p className="text-xs text-slate-400 mt-1">Verified primary reporting and neural analysis in {slug}</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading capitalize">{slug} Intelligence Feed</h1>
+        <p className="text-xs text-slate-500 mt-1">Verified primary reporting and neural analysis in {slug}</p>
       </div>
 
       <NewsGrid

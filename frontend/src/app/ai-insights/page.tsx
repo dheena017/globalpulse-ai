@@ -31,9 +31,9 @@ export default function AIInsightsPage() {
 
   return (
     <div className="space-y-10">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">AI Intelligence & Perspective Radar</h1>
-        <p className="text-xs text-slate-400 mt-1">Multi-perspective cross-source comparative framing and media blindspot diagnostics</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">AI Intelligence & Perspective Radar</h1>
+        <p className="text-xs text-slate-500 mt-1">Multi-perspective cross-source comparative framing and media blindspot diagnostics</p>
       </div>
 
       {/* Topic Selection */}
@@ -44,8 +44,8 @@ export default function AIInsightsPage() {
             onClick={() => setTopic(t)}
             className={`rounded-2xl px-4 py-2 text-xs font-semibold transition-all ${
               topic === t
-                ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg'
-                : 'border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md shadow-indigo-500/20'
+                : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
             }`}
           >
             {t}

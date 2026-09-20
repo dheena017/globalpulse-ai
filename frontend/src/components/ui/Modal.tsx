@@ -37,22 +37,22 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div
-        className="fixed inset-0 bg-black/70 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
       <div
-        className={`relative z-10 w-full ${maxWidth} overflow-hidden rounded-3xl border border-white/10 bg-slate-900/95 p-6 shadow-2xl backdrop-blur-2xl transition-all duration-300 animate-in fade-in zoom-in-95`}
+        className={`relative z-10 w-full ${maxWidth} overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl transition-all duration-300 animate-in fade-in zoom-in-95`}
       >
-        <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
-          {title && <h3 className="text-xl font-semibold text-white font-heading">{title}</h3>}
+        <div className="mb-4 flex items-center justify-between border-b border-slate-200/80 pb-3">
+          {title && <h3 className="text-xl font-bold text-slate-900 font-heading">{title}</h3>}
           <button
             onClick={onClose}
-            className="ml-auto rounded-full p-1.5 text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+            className="ml-auto rounded-full p-1.5 text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
-        <div className="max-h-[80vh] overflow-y-auto pr-1">{children}</div>
+        <div className="max-h-[80vh] overflow-y-auto pr-1 text-slate-700">{children}</div>
       </div>
     </div>
   );

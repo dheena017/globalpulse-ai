@@ -176,6 +176,19 @@ const FALLBACK_ARTICLES: Article[] = [
   }
 ];
 
+async function fetchFast(url: string, options: RequestInit = {}, timeoutMs = 2500): Promise<Response> {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    clearTimeout(timeoutId);
+    return res;
+  } catch (err) {
+    clearTimeout(timeoutId);
+    throw err;
+  }
+}
+
 export const apiClient = {
   // News endpoints
   async getNews(params?: {
@@ -199,7 +212,7 @@ export const apiClient = {
       if (params?.limit) query.set('limit', params.limit.toString());
       if (params?.sort_by) query.set('sort_by', params.sort_by);
 
-      const res = await fetch(`${API_BASE}/news?${query.toString()}`, { next: { revalidate: 60 } });
+      const res = await fetchFast(`${API_BASE}/news?${query.toString()}`);
       if (!res.ok) throw new Error('Failed to fetch news');
       return await res.json();
     } catch {
@@ -222,7 +235,7 @@ export const apiClient = {
 
   async getBreakingNews(limit = 8): Promise<Article[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/breaking-news?limit=${limit}`);
+      const res = await fetchFast(`${API_BASE}/news/breaking-news?limit=${limit}`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -232,7 +245,7 @@ export const apiClient = {
 
   async getTopHeadlines(limit = 5): Promise<Article[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/top-headlines?limit=${limit}`);
+      const res = await fetchFast(`${API_BASE}/news/top-headlines?limit=${limit}`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -242,7 +255,7 @@ export const apiClient = {
 
   async getLiveWire(limit = 30): Promise<Article[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/live-wire?limit=${limit}`);
+      const res = await fetchFast(`${API_BASE}/news/live-wire?limit=${limit}`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -252,7 +265,7 @@ export const apiClient = {
 
   async getArticleById(id: string): Promise<Article | null> {
     try {
-      const res = await fetch(`${API_BASE}/news/article/${id}`);
+      const res = await fetchFast(`${API_BASE}/news/article/${id}`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -262,7 +275,7 @@ export const apiClient = {
 
   async getCategories(): Promise<CategoryInfo[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/all-categories`);
+      const res = await fetchFast(`${API_BASE}/news/all-categories`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -281,7 +294,7 @@ export const apiClient = {
 
   async getSources(): Promise<SourceInfo[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/all-sources`);
+      const res = await fetchFast(`${API_BASE}/news/all-sources`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -297,7 +310,7 @@ export const apiClient = {
 
   async getWorldRegions(): Promise<RegionInfo[]> {
     try {
-      const res = await fetch(`${API_BASE}/news/world-regions`);
+      const res = await fetchFast(`${API_BASE}/news/world-regions`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -314,7 +327,7 @@ export const apiClient = {
   // AI endpoints
   async getDailyBriefing(): Promise<DailyBriefing> {
     try {
-      const res = await fetch(`${API_BASE}/ai/daily-world-briefing`);
+      const res = await fetchFast(`${API_BASE}/ai/daily-world-briefing`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {
@@ -338,7 +351,7 @@ export const apiClient = {
 
   async summarizeArticle(articleId?: string, title?: string, content?: string): Promise<AISummary> {
     try {
-      const res = await fetch(`${API_BASE}/ai/generate-summary`, {
+      const res = await fetchFast(`${API_BASE}/ai/generate-summary`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ article_id: articleId, title, content })
@@ -363,7 +376,7 @@ export const apiClient = {
 
   async getFactCheckScore(articleId?: string, title?: string, content?: string, sourceName = "Reuters"): Promise<FactCheckReport> {
     try {
-      const res = await fetch(`${API_BASE}/ai/fact-check-score`, {
+      const res = await fetchFast(`${API_BASE}/ai/fact-check-score`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ article_id: articleId, title, content, source_name: sourceName })
@@ -399,7 +412,7 @@ export const apiClient = {
 
   async compareSources(topic: string, articleTitle = ""): Promise<PerspectiveComparison> {
     try {
-      const res = await fetch(`${API_BASE}/ai/compare-sources`, {
+      const res = await fetchFast(`${API_BASE}/ai/compare-sources`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic, article_title: articleTitle })
@@ -448,7 +461,7 @@ export const apiClient = {
 
   async getBlindspots(topic: string): Promise<BlindspotData> {
     try {
-      const res = await fetch(`${API_BASE}/ai/blindspot-radar`, {
+      const res = await fetchFast(`${API_BASE}/ai/blindspot-radar`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic })
@@ -468,7 +481,7 @@ export const apiClient = {
 
   async getStoryTimeline(topic: string, articleTitle = ""): Promise<StoryTimeline> {
     try {
-      const res = await fetch(`${API_BASE}/ai/story-timeline`, {
+      const res = await fetchFast(`${API_BASE}/ai/story-timeline`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic, article_title: articleTitle })
@@ -491,7 +504,7 @@ export const apiClient = {
 
   async askQuestion(message: string, articleTitle = "", articleContext = ""): Promise<{ reply: string; sources_cited: string[]; follow_up_suggestions: string[] }> {
     try {
-      const res = await fetch(`${API_BASE}/ai/ask-question`, {
+      const res = await fetchFast(`${API_BASE}/ai/ask-question`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message, article_title: articleTitle, article_context: articleContext })
@@ -513,7 +526,7 @@ export const apiClient = {
 
   async getPodcastScript(): Promise<PodcastScript> {
     try {
-      const res = await fetch(`${API_BASE}/audio/daily-podcast-script`);
+      const res = await fetchFast(`${API_BASE}/audio/daily-podcast-script`);
       if (!res.ok) throw new Error();
       return await res.json();
     } catch {

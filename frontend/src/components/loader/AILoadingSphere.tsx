@@ -43,24 +43,24 @@ export const AILoadingSphere: React.FC<AILoadingSphereProps> = ({
         </div>
       </div>
 
-      <h3 className="mb-2 text-xl font-bold font-heading text-white flex items-center gap-2">
-        <Sparkles className="h-5 w-5 text-cyan-400" />
+      <h3 className="mb-2 text-xl font-bold font-heading text-slate-900 flex items-center gap-2">
+        <Sparkles className="h-5 w-5 text-indigo-600" />
         GlobalPulse AI Neural Engine
       </h3>
 
-      <p className="text-sm font-medium text-indigo-300 mb-6">{statusMessage}</p>
+      <p className="text-sm font-medium text-indigo-600 mb-6">{statusMessage}</p>
 
       {/* Live Telemetry Stream */}
-      <div className="w-full max-w-md rounded-2xl border border-white/10 bg-slate-900/80 p-4 backdrop-blur-xl shadow-inner">
-        <div className="flex items-center justify-between text-[11px] text-slate-400 border-b border-white/10 pb-2 mb-2">
-          <span className="flex items-center gap-1.5 font-mono text-cyan-400">
-            <span className="h-2 w-2 rounded-full bg-cyan-400 animate-ping" />
+      <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-4 shadow-md">
+        <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-slate-100 pb-2 mb-2 font-medium">
+          <span className="flex items-center gap-1.5 font-mono text-indigo-600 font-bold">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
             LIVE PIPELINE
           </span>
-          <span className="font-mono">PORT: 8000 (FASTAPI)</span>
+          <span className="font-mono text-slate-400">PORT: 8000 (FASTAPI)</span>
         </div>
-        <p className="font-mono text-xs text-slate-300 text-left transition-all duration-300 min-h-[32px] flex items-center gap-2">
-          <Cpu className="h-3.5 w-3.5 text-indigo-400 flex-shrink-0" />
+        <p className="font-mono text-xs text-slate-700 text-left transition-all duration-300 min-h-[32px] flex items-center gap-2">
+          <Cpu className="h-3.5 w-3.5 text-indigo-600 flex-shrink-0" />
           <span>{telemetrySteps[telemetryIndex]}</span>
         </p>
       </div>
@@ -69,7 +69,7 @@ export const AILoadingSphere: React.FC<AILoadingSphereProps> = ({
 
   if (fullscreen) {
     return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-2xl">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 backdrop-blur-xl">
         {content}
       </div>
     );

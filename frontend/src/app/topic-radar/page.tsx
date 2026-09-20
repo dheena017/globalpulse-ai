@@ -48,24 +48,24 @@ export default function TopicRadarPage() {
 
   return (
     <div className="space-y-8">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">Custom Topic Watchlist & Neural Radar</h1>
-        <p className="text-xs text-slate-400 mt-1">Configure automated semantic entity monitors with instant wire alerts</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">Custom Topic Watchlist & Neural Radar</h1>
+        <p className="text-xs text-slate-500 mt-1">Configure automated semantic entity monitors with instant wire alerts</p>
       </div>
 
       {/* Add Custom Radar Form */}
-      <GlassCard glowColor="indigo" className="p-6">
+      <GlassCard glowColor="indigo" className="p-6 bg-white border border-slate-200/90 shadow-md">
         <form onSubmit={handleAdd} className="flex flex-col sm:flex-row gap-3">
           <input
             type="text"
             placeholder="Track a custom keyword or entity (e.g., Quantum Computing, Central Bank Digital Currency)..."
             value={newKeyword}
             onChange={(e) => setNewKeyword(e.target.value)}
-            className="flex-1 rounded-2xl border border-white/10 bg-slate-900/80 px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none"
+            className="flex-1 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none"
           />
           <button
             type="submit"
-            className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-6 py-3 text-xs font-bold text-white shadow-lg hover:opacity-95"
+            className="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:opacity-95"
           >
             <Plus className="h-4 w-4" />
             <span>Add Neural Monitor</span>
@@ -73,24 +73,24 @@ export default function TopicRadarPage() {
         </form>
 
         {/* Keyword Pills */}
-        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-white/10">
+        <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-slate-100">
           {customKeywords.map((kw) => (
             <div
               key={kw}
               className={`flex items-center gap-2 rounded-2xl border px-3.5 py-1.5 text-xs font-semibold transition-all ${
                 activeKeyword === kw
-                  ? 'border-cyan-500/50 bg-cyan-950/40 text-cyan-300 shadow-md'
-                  : 'border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                  ? 'border-indigo-300 bg-indigo-50 text-indigo-900 shadow-xs'
+                  : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-white'
               }`}
             >
               <button onClick={() => setActiveKeyword(kw)} className="flex items-center gap-1.5">
-                <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+                <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
                 <span>{kw}</span>
               </button>
               {customKeywords.length > 1 && (
                 <button
                   onClick={() => handleRemove(kw)}
-                  className="rounded-full p-0.5 text-slate-500 hover:text-rose-400 transition-colors"
+                  className="rounded-full p-0.5 text-slate-400 hover:text-rose-600 transition-colors"
                 >
                   <Trash2 className="h-3 w-3" />
                 </button>
@@ -103,14 +103,14 @@ export default function TopicRadarPage() {
       {/* Matched Feed */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-white font-heading">
-            Live Wire Matched for: <span className="text-cyan-400">&ldquo;{activeKeyword}&rdquo;</span>
+          <h3 className="text-base font-bold text-slate-900 font-heading">
+            Live Wire Matched for: <span className="text-indigo-600">&ldquo;{activeKeyword}&rdquo;</span>
           </h3>
-          <span className="text-xs font-mono text-slate-400">{matchedArticles.length} articles detected</span>
+          <span className="text-xs font-mono text-slate-500">{matchedArticles.length} articles detected</span>
         </div>
 
         {loading ? (
-          <div className="py-12 text-center text-xs text-indigo-300 animate-pulse">
+          <div className="py-12 text-center text-xs text-indigo-600 font-medium animate-pulse">
             Scanning 25+ global wire feeds for matches...
           </div>
         ) : (

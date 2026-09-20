@@ -23,9 +23,9 @@ export default function StoryTimelinePage() {
 
   return (
     <div className="space-y-8">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">Story Timeline & Chronological Evolution</h1>
-        <p className="text-xs text-slate-400 mt-1">Autonomous event sequencing and milestone tracking across time</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">Story Timeline & Chronological Evolution</h1>
+        <p className="text-xs text-slate-500 mt-1">Autonomous event sequencing and milestone tracking across time</p>
       </div>
 
       {/* Topic Switcher Pills */}
@@ -36,8 +36,8 @@ export default function StoryTimelinePage() {
             onClick={() => setSelectedTopic(t)}
             className={`rounded-2xl px-4 py-2 text-xs font-semibold transition-all ${
               selectedTopic === t
-                ? 'bg-gradient-to-r from-indigo-600 to-cyan-500 text-white shadow-lg'
-                : 'border border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md shadow-indigo-500/20'
+                : 'border border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs'
             }`}
           >
             {t}
@@ -48,7 +48,7 @@ export default function StoryTimelinePage() {
       {timeline ? (
         <TimelineViewer timeline={timeline} />
       ) : (
-        <div className="py-12 text-center text-xs text-indigo-300 animate-pulse">
+        <div className="py-12 text-center text-xs text-indigo-600 font-medium animate-pulse">
           Generating neural chronological timeline...
         </div>
       )}

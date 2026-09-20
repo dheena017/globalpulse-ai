@@ -29,37 +29,37 @@ const MEDIA_PLOTS: MediaPlot[] = [
 
 export const BiasReliabilityChart: React.FC = () => {
   return (
-    <GlassCard glowColor="indigo" className="space-y-6">
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
+    <GlassCard glowColor="indigo" className="space-y-6 bg-white border border-slate-200/90 shadow-md">
+      <div className="flex items-center justify-between border-b border-slate-100 pb-4">
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500/20 text-indigo-400">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 border border-indigo-200 text-indigo-600">
             <ShieldCheck className="h-5 w-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-white font-heading">Global Media Bias & Reliability 2D Index</h3>
-            <p className="text-xs text-slate-400">Mapping accredited publishers on Factual Rigor vs Editorial Stance</p>
+            <h3 className="text-base font-bold text-slate-900 font-heading">Global Media Bias & Reliability 2D Index</h3>
+            <p className="text-xs text-slate-500">Mapping accredited publishers on Factual Rigor vs Editorial Stance</p>
           </div>
         </div>
       </div>
 
       {/* 2D Coordinate Scatter Plot Visualizer */}
-      <div className="relative h-80 w-full rounded-2xl border border-white/10 bg-slate-950 p-6 overflow-hidden">
+      <div className="relative h-80 w-full rounded-2xl border border-slate-200 bg-slate-50/70 p-6 overflow-hidden">
         {/* Grid Lines */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="h-full w-px bg-white/10" />
+          <div className="h-full w-px bg-slate-200" />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-px bg-white/10" />
+          <div className="w-full h-px bg-slate-200" />
         </div>
 
         {/* Quadrant Labels */}
-        <div className="absolute top-3 left-4 text-[10px] font-mono text-indigo-400 uppercase font-bold">
+        <div className="absolute top-3 left-4 text-[10px] font-mono text-indigo-700 uppercase font-bold">
           High Factual / Center-Left
         </div>
-        <div className="absolute top-3 right-4 text-[10px] font-mono text-cyan-400 uppercase font-bold">
+        <div className="absolute top-3 right-4 text-[10px] font-mono text-sky-700 uppercase font-bold">
           High Factual / Center-Right
         </div>
-        <div className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] font-mono text-emerald-400 uppercase font-bold bg-slate-900/80 px-2 py-0.5 rounded border border-emerald-500/30">
+        <div className="absolute top-3 left-1/2 -translate-x-1/2 text-[10px] font-mono text-emerald-700 uppercase font-bold bg-white px-2 py-0.5 rounded border border-emerald-300 shadow-xs">
           Gold Standard (Reuters / AP / Nature)
         </div>
 
@@ -76,18 +76,18 @@ export const BiasReliabilityChart: React.FC = () => {
               className="absolute -translate-x-1/2 -translate-y-1/2 group cursor-pointer"
               style={{ left: `${leftPct}%`, top: `${topPct}%` }}
             >
-              <div className="h-3.5 w-3.5 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-400 border border-white shadow-lg group-hover:scale-150 transition-transform" />
-              <div className="absolute left-1/2 -translate-x-1/2 bottom-5 hidden group-hover:flex flex-col items-center bg-slate-900 border border-white/20 px-2.5 py-1 rounded-lg text-[10px] font-bold text-white whitespace-nowrap shadow-xl z-20">
+              <div className="h-3.5 w-3.5 rounded-full bg-gradient-to-tr from-indigo-600 to-sky-500 border border-white shadow-md group-hover:scale-150 transition-transform" />
+              <div className="absolute left-1/2 -translate-x-1/2 bottom-5 hidden group-hover:flex flex-col items-center bg-white border border-slate-200 px-2.5 py-1 rounded-lg text-[10px] font-bold text-slate-800 whitespace-nowrap shadow-xl z-20">
                 <span>{plot.name}</span>
-                <span className="text-emerald-400 font-mono text-[9px]">Factual: {plot.y}%</span>
+                <span className="text-emerald-700 font-mono text-[9px]">Factual: {plot.y}%</span>
               </div>
             </div>
           );
         })}
       </div>
 
-      <div className="flex items-center gap-2 text-xs text-slate-400">
-        <Info className="h-4 w-4 text-cyan-400 flex-shrink-0" />
+      <div className="flex items-center gap-2 text-xs text-slate-600">
+        <Info className="h-4 w-4 text-indigo-600 flex-shrink-0" />
         <span>GlobalPulse AI exclusively ingests from publications scoring &gt; 90% on empirical fact-checking benchmarks.</span>
       </div>
     </GlassCard>

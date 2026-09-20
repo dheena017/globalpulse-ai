@@ -24,9 +24,9 @@ export const NewsGrid: React.FC<NewsGridProps> = ({ articles, loading = false, o
 
   if (articles.length === 0) {
     return (
-      <div className="rounded-3xl border border-white/10 bg-slate-900/50 p-12 text-center backdrop-blur-xl">
-        <p className="text-base font-semibold text-white">No articles matched your criteria.</p>
-        <p className="text-xs text-slate-400 mt-1">Try resetting filters or expanding your search terms.</p>
+      <div className="rounded-3xl border border-slate-200 bg-white p-12 text-center shadow-sm">
+        <p className="text-base font-semibold text-slate-800">No articles matched your criteria.</p>
+        <p className="text-xs text-slate-500 mt-1">Try resetting filters or expanding your search terms.</p>
       </div>
     );
   }

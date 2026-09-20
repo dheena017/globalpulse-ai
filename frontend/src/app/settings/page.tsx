@@ -23,16 +23,16 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-2xl mx-auto space-y-8">
-      <div className="border-b border-white/10 pb-4">
-        <h1 className="text-2xl font-black text-white font-heading">Settings & AI Configuration</h1>
-        <p className="text-xs text-slate-400 mt-1">Configure neural models, direct LLM keys, and content preferences</p>
+      <div className="border-b border-slate-200/80 pb-4">
+        <h1 className="text-2xl font-black text-slate-900 font-heading">Settings & AI Configuration</h1>
+        <p className="text-xs text-slate-500 mt-1">Configure neural models, direct LLM keys, and content preferences</p>
       </div>
 
       <form onSubmit={handleSave} className="space-y-6">
         {/* AI Engine Selection */}
-        <GlassCard glowColor="indigo" className="p-6 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-bold text-white font-heading">
-            <Sparkles className="h-4 w-4 text-cyan-400" />
+        <GlassCard glowColor="indigo" className="p-6 space-y-4 bg-white border border-slate-200/90 shadow-md">
+          <div className="flex items-center gap-2 text-sm font-bold text-slate-900 font-heading">
+            <Sparkles className="h-4 w-4 text-indigo-600" />
             <span>AI Summarization Engine</span>
           </div>
 
@@ -48,47 +48,47 @@ export default function SettingsPage() {
                 onClick={() => setAiMode(engine.id)}
                 className={`rounded-2xl border p-4 text-left transition-all ${
                   aiMode === engine.id
-                    ? 'border-cyan-500/50 bg-cyan-950/30 text-white shadow-md'
-                    : 'border-white/5 bg-slate-900/50 text-slate-400 hover:border-white/20'
+                    ? 'border-indigo-300 bg-indigo-50 text-indigo-900 shadow-xs font-medium'
+                    : 'border-slate-200 bg-slate-50/60 text-slate-600 hover:border-slate-300 hover:bg-white'
                 }`}
               >
-                <p className="text-xs font-bold text-white mb-1">{engine.name}</p>
-                <p className="text-[10px] text-slate-400 leading-relaxed">{engine.desc}</p>
+                <p className="text-xs font-bold text-slate-900 mb-1">{engine.name}</p>
+                <p className="text-[10px] text-slate-500 leading-relaxed">{engine.desc}</p>
               </button>
             ))}
           </div>
         </GlassCard>
 
         {/* Custom API Keys */}
-        <GlassCard className="p-6 space-y-4">
-          <div className="flex items-center gap-2 text-sm font-bold text-white font-heading">
-            <Key className="h-4 w-4 text-indigo-400" />
+        <GlassCard className="p-6 space-y-4 bg-white border border-slate-200/90 shadow-md">
+          <div className="flex items-center gap-2 text-sm font-bold text-slate-900 font-heading">
+            <Key className="h-4 w-4 text-indigo-600" />
             <span>Custom AI API Keys (Optional)</span>
           </div>
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-slate-500">
             Keys are stored securely in your local browser session and never sent to third-party databases.
           </p>
 
           <div className="space-y-3 pt-2">
             <div>
-              <label className="text-[11px] font-mono text-slate-300 block mb-1">Google Gemini API Key</label>
+              <label className="text-[11px] font-mono text-slate-700 block mb-1 font-medium">Google Gemini API Key</label>
               <input
                 type="password"
                 placeholder="AIzaSy..."
                 value={geminiKey}
                 onChange={(e) => setGeminiKey(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="text-[11px] font-mono text-slate-300 block mb-1">OpenAI API Key</label>
+              <label className="text-[11px] font-mono text-slate-700 block mb-1 font-medium">OpenAI API Key</label>
               <input
                 type="password"
                 placeholder="sk-proj-..."
                 value={openaiKey}
                 onChange={(e) => setOpenaiKey(e.target.value)}
-                className="w-full rounded-xl border border-white/10 bg-slate-900/80 px-4 py-2.5 text-xs text-white placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none"
               />
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function SettingsPage() {
 
         <div className="flex items-center justify-between pt-2">
           {savedSuccess && (
-            <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 animate-in fade-in">
+            <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-600 animate-in fade-in">
               <Check className="h-4 w-4" />
               <span>Settings saved successfully!</span>
             </span>
@@ -104,7 +104,7 @@ export default function SettingsPage() {
 
           <button
             type="submit"
-            className="ml-auto rounded-2xl bg-gradient-to-r from-indigo-600 to-cyan-500 px-6 py-3 text-xs font-bold text-white shadow-lg hover:opacity-95 transition-all"
+            className="ml-auto rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-600 px-6 py-3 text-xs font-bold text-white shadow-md hover:opacity-95 transition-all"
           >
             Save Preferences
           </button>

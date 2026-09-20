@@ -54,24 +54,24 @@ export default function LoginPage() {
 
   return (
     <div className="py-12 flex items-center justify-center">
-      <GlassCard glowColor="indigo" className="w-full max-w-md p-8 space-y-6">
+      <GlassCard glowColor="indigo" className="w-full max-w-md p-8 space-y-6 bg-white border border-slate-200/90 shadow-xl">
         {/* Brand Header */}
         <div className="text-center space-y-2">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-cyan-500 to-purple-600 text-white shadow-lg shadow-indigo-500/30">
+          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-sky-500 to-purple-600 text-white shadow-md shadow-indigo-500/20">
             <Globe className="h-6 w-6" />
           </div>
-          <h2 className="text-2xl font-black text-white font-heading">Access Intelligence Portal</h2>
-          <p className="text-xs text-slate-400">Sign in to unlock personalized radars, bookmarks & AI briefings</p>
+          <h2 className="text-2xl font-black text-slate-900 font-heading">Access Intelligence Portal</h2>
+          <p className="text-xs text-slate-500">Sign in to unlock personalized radars, bookmarks & AI briefings</p>
         </div>
 
         {/* Google Sign In */}
         <div className="space-y-4">
-          <GoogleSignInButton onSuccess={() => router.push('/')} />
+          <GoogleSignInButton onSuccess={() => router.push('/dashboard')} />
 
           <div className="flex items-center gap-3">
-            <div className="h-px flex-1 bg-white/10" />
-            <span className="text-[11px] font-mono text-slate-500 uppercase">Or Continue With</span>
-            <div className="h-px flex-1 bg-white/10" />
+            <div className="h-px flex-1 bg-slate-200" />
+            <span className="text-[11px] font-mono text-slate-400 uppercase font-semibold">Or Continue With</span>
+            <div className="h-px flex-1 bg-slate-200" />
           </div>
 
           {/* Email / Password Form */}
@@ -84,7 +84,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full rounded-xl border border-white/10 bg-slate-900/80 py-3 pl-10 pr-4 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-4 text-xs text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none"
               />
             </div>
 
@@ -96,34 +96,34 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full rounded-xl border border-white/10 bg-slate-900/80 py-3 pl-10 pr-4 text-xs text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none"
+                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-4 text-xs text-slate-900 placeholder-slate-400 focus:border-indigo-500 focus:bg-white focus:outline-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 py-3 text-xs font-bold text-white shadow-lg shadow-indigo-500/25 hover:opacity-95 transition-all"
+              className="w-full rounded-xl bg-gradient-to-r from-indigo-600 to-sky-600 py-3 text-xs font-bold text-white shadow-md shadow-indigo-500/20 hover:opacity-95 transition-all"
             >
               {loading ? 'Authenticating...' : 'Sign In with Email'}
             </button>
           </form>
 
           {/* Instant Guest Mode */}
-          <div className="border-t border-white/10 pt-4 text-center">
+          <div className="border-t border-slate-100 pt-4 text-center">
             <button
               onClick={handleGuestLogin}
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/10 bg-slate-800/80 py-3 text-xs font-bold text-slate-300 hover:bg-slate-800 hover:text-white transition-all"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-3 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-all shadow-xs"
             >
-              <UserCheck className="h-4 w-4 text-emerald-400" />
+              <UserCheck className="h-4 w-4 text-emerald-600" />
               <span>Explore Instantly as Guest</span>
             </button>
           </div>
         </div>
 
         {/* Footer info */}
-        <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500 text-center">
-          <ShieldCheck className="h-3.5 w-3.5 text-indigo-400" />
+        <div className="flex items-center justify-center gap-2 text-[11px] text-slate-400 text-center">
+          <ShieldCheck className="h-3.5 w-3.5 text-indigo-600" />
           <span>Strict end-to-end encryption & privacy standards</span>
         </div>
       </GlassCard>

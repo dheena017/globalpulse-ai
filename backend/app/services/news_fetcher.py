@@ -55,7 +55,7 @@ async def fetch_single_feed(client: httpx.AsyncClient, feed_meta: Dict[str, Any]
     country = feed_meta.get("country", "International")
 
     try:
-        response = await client.get(url, timeout=8.0, follow_redirects=True, headers={
+        response = await client.get(url, timeout=2.5, follow_redirects=True, headers={
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 GlobalPulseBot/2.0"
         })
         if response.status_code != 200:

@@ -22,10 +22,10 @@ export default function LiveWirePage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200/80 pb-4">
         <div>
-          <h1 className="text-2xl font-black text-white font-heading">Live Wire Stream Terminal</h1>
-          <p className="text-xs text-slate-400 mt-1">Raw, chronological dispatches directly from global news wires</p>
+          <h1 className="text-2xl font-black text-slate-900 font-heading">Live Wire Stream Terminal</h1>
+          <p className="text-xs text-slate-500 mt-1">Raw, chronological dispatches directly from global news wires</p>
         </div>
       </div>
 

@@ -74,6 +74,11 @@ async def lifespan(app: FastAPI):
     log_event("INFO", "ROUTERS", f"{C_WHITE}Mounted {C_BRIGHT_GREEN}8 Granular REST API Routers{C_WHITE} under prefix {C_CYAN}/api/v1/*{C_RESET}", C_BRIGHT_GREEN)
     log_event("INFO", "SECURITY", f"{C_WHITE}SSRF Validator & Token-Bucket Rate Limiter active on sensitive AI & ingestion endpoints.{C_RESET}", C_BRIGHT_YELLOW)
     
+    # Pre-warm news cache in background for sub-10ms initial client response
+    import asyncio
+    from app.services.news_fetcher import get_all_news
+    asyncio.create_task(get_all_news())
+    
     yield
     log_event("INFO", "SHUTDOWN", "Shutting down database connections & worker threads...", C_BRIGHT_YELLOW)
 
