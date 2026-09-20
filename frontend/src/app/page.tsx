@@ -13,74 +13,74 @@ export default function LandingPage() {
   const pillars = [
     {
       icon: ShieldCheck,
-      color: 'text-emerald-400',
-      badge: 'Tier-1 Standards',
-      title: 'Accredited Wire Ingestion Only',
-      desc: 'Filtered strictly from Reuters, Associated Press, BBC World, Financial Times, Bloomberg, and Nature. Zero clickbait, zero unverified blogs.'
+      color: 'text-emerald-500',
+      badge: 'Trusted Sources',
+      title: 'Top Global Newsrooms Only',
+      desc: 'Sourced strictly from Reuters, Associated Press, BBC World, Financial Times, Bloomberg, and Nature. Zero clickbait, zero fake blogs.'
     },
     {
       icon: Sparkles,
-      color: 'text-cyan-400',
-      badge: '5-Tier Taxonomy',
-      title: 'Defensible Fact-Checking Engine',
-      desc: 'Discrete claim extraction cross-corroborated against primary wire consensus with transparent credibility ratings.'
+      color: 'text-cyan-500',
+      badge: 'AI Verified',
+      title: 'Instant Fact-Check Engine',
+      desc: 'Every key claim is automatically checked against multiple trusted newsrooms to verify truth and flag misleading claims.'
     },
     {
       icon: Headphones,
-      color: 'text-purple-400',
-      badge: 'Synthesized Voice',
-      title: 'Multi-Anchor Podcast Studio',
-      desc: 'Listen to 3-minute executive briefings with selectable anchor personas for Geopolitics, AI & Tech, and Global Markets.'
+      color: 'text-purple-500',
+      badge: 'Audio News',
+      title: 'Daily 3-Minute Audio Briefings',
+      desc: 'Listen to clear, concise audio summaries of world news, technology, and global markets anytime.'
     },
     {
       icon: Layers,
-      color: 'text-indigo-400',
-      badge: '360° Vision',
-      title: 'Perspective Matrix & Blindspot Radar',
-      desc: 'Compare side-by-side how international bureaus frame the same event and detect underreported regional blindspots.'
+      color: 'text-indigo-500',
+      badge: 'Compare Coverage',
+      title: 'Compare World Perspectives',
+      desc: 'See how different international bureaus report the same event side-by-side to get the complete story.'
     },
     {
       icon: Radio,
-      color: 'text-rose-400',
-      badge: 'Sub-Second',
-      title: 'Bloomberg-Style Live Wire',
-      desc: 'High-speed terminal stream prioritizing urgent wire flashes, geopolitical alerts, and market-moving developments.'
+      color: 'text-rose-500',
+      badge: 'Live Stream',
+      title: 'Live Breaking News Feed',
+      desc: 'Instant continuous stream of urgent breaking dispatches from around the globe as events unfold.'
     },
     {
       icon: FileText,
-      color: 'text-amber-400',
-      badge: 'One-Click Export',
-      title: 'Executive Intelligence Dossiers',
-      desc: 'Compile comprehensive intelligence briefs on any developing world crisis into downloadable PDF and Markdown reports.'
+      color: 'text-amber-500',
+      badge: 'Download Briefs',
+      title: 'Download Custom News Reports',
+      desc: 'Save and export comprehensive summaries and timelines on any major world event with one click.'
     }
   ];
 
   const metrics = [
-    { number: '25+', label: 'Accredited Wire Sources' },
-    { number: '5-Tier', label: 'Defensible Fact Taxonomy' },
-    { number: '< 1s', label: 'Real-Time Wire Latency' },
-    { number: '100%', label: 'Primary Corroborated' }
+    { number: '25+', label: 'Top Global Newsrooms' },
+    { number: '100%', label: 'AI Fact-Checked' },
+    { number: '24/7', label: 'Live Real-Time Updates' },
+    { number: 'Zero', label: 'Clickbait or Rumors' }
   ];
 
   return (
     <div className="space-y-10 sm:space-y-14 py-2 md:py-6">
       {/* 1. Hero Section */}
       <section className="relative text-center space-y-4 max-w-3xl mx-auto pt-2">
-        {/* Glowing Badge */}
+        {/* Badge */}
         <div className="inline-flex items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-[11px] font-bold text-indigo-700 shadow-sm">
           <Sparkles className="h-3.5 w-3.5 text-indigo-600" />
-          <span>ENTERPRISE WORLD NEWS INTELLIGENCE PLATFORM</span>
+          <span>REAL-TIME WORLD NEWS • SUMMARIZED & VERIFIED BY AI</span>
         </div>
 
         {/* Hero Title */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black font-heading text-slate-900 tracking-tight leading-tight">
           The World&apos;s News. <br />
-          <span className="text-gradient">Synthesized & Fact-Checked.</span>
+          <span className="text-gradient">Clear, Verified & Ad-Free.</span>
         </h1>
 
         {/* Hero Subtitle */}
         <p className="text-xs sm:text-sm md:text-base text-slate-600 max-w-xl mx-auto leading-relaxed font-normal">
-          Aggregating 25+ accredited Tier-1 wire bureaus with multi-dimensional AI verification, multi-anchor voice audio, and regional blindspot radar.
+          Aggregating 25+ accredited global news agencies with instant fact-checking, multi-perspective comparisons, and audio summaries.
         </p>
 
         {/* Main Call to Action Buttons */}
@@ -89,7 +89,7 @@ export default function LandingPage() {
             href="/login"
             className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-indigo-500/20 hover:opacity-95 hover:scale-[1.01] transition-all"
           >
-            <span>Sign In & Launch Dashboard</span>
+            <span>Sign In & Open Dashboard</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
 
@@ -98,7 +98,7 @@ export default function LandingPage() {
             className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-slate-700 hover:text-indigo-600 hover:border-indigo-400 hover:bg-slate-50 transition-all shadow-sm"
           >
             <Radio className="h-3.5 w-3.5 text-rose-500" />
-            <span>Open Live Wire Terminal</span>
+            <span>Open Live News Stream</span>
           </Link>
         </div>
       </section>
@@ -112,16 +112,16 @@ export default function LandingPage() {
 
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 border-b border-slate-200 pb-3.5 mb-3.5">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-2.5 w-2.5 rounded-full bg-indigo-500 animate-ping" />
+              <span className="flex h-2.5 w-2.5 rounded-full bg-indigo-500 animate-pulse" />
               <div>
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600">Live AI Synthesis Preview</span>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-heading">Global Clean Energy Historic $2 Trillion Milestone</h3>
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-600">Sample AI Summary</span>
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-heading">Global Clean Energy Reaches Historic $2 Trillion Milestone</h3>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
               <span className="rounded-full bg-emerald-50 border border-emerald-300 px-2.5 py-0.5 text-[10px] font-bold text-emerald-800">
-                ✓ VERIFIED (99% Consensus)
+                ✓ Fact-Checked (99% Agreement)
               </span>
               <span className="rounded-full bg-indigo-50 border border-indigo-200 px-2.5 py-0.5 text-[10px] font-bold text-indigo-700">
                 Reuters Wire
@@ -134,20 +134,20 @@ export default function LandingPage() {
             <div className="md:col-span-2 space-y-2 bg-slate-50 rounded-xl p-3.5 border border-slate-200/80">
               <span className="text-[11px] font-mono font-bold uppercase text-slate-600 flex items-center gap-1.5">
                 <Sparkles className="h-3 w-3 text-indigo-600" />
-                <span>Autonomous AI TL;DR Takeaways</span>
+                <span>3 Key Takeaways in 15 Seconds</span>
               </span>
               <ul className="space-y-1.5 text-xs text-slate-700">
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-600 font-bold">•</span>
-                  <span><strong>Historic Deployment:</strong> IEA confirms record solar, wind, and modular nuclear installations surpassing $2T globally.</span>
+                  <span><strong>Record Global Investment:</strong> Over $2 Trillion invested worldwide into solar, wind, and new energy.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-600 font-bold">•</span>
-                  <span><strong>Industrial Impact:</strong> G20 manufacturing corridors report a 14% drop in fossil reliance over 12 months.</span>
+                  <span><strong>Fossil Fuel Drop:</strong> Major industrial regions report a 14% drop in fossil fuel reliance this year.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-indigo-600 font-bold">•</span>
-                  <span><strong>Multi-Bureau Consensus:</strong> Corroborated unanimously by Reuters, AP, and Financial Times dispatches.</span>
+                  <span><strong>Verified by Multiple Outlets:</strong> Confirmed by reports from Reuters, AP, and Financial Times.</span>
                 </li>
               </ul>
             </div>

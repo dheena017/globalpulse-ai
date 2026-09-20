@@ -16,11 +16,11 @@ export const Footer: React.FC = () => {
               <span className="font-heading font-extrabold text-slate-900 text-base">GlobalPulse.AI</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Synthesizing real-time world intelligence exclusively from 25+ accredited Tier-1 global news institutions. Powered by multi-layer AI fact-checking, bias detection, and cross-wire corroboration.
+              Delivering real-time world news from the world&apos;s most trusted sources including Reuters, Associated Press, BBC, Bloomberg, and Nature. Summarized and fact-checked by AI for accuracy.
             </p>
             <div className="flex items-center gap-2 text-[11px] text-emerald-700 font-medium">
-              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-              <span className="font-mono">FASTAPI BACKEND: ONLINE (PORT 8000)</span>
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Live News Stream • Updated 24/7</span>
             </div>
           </div>
 
@@ -28,36 +28,36 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">Live Coverage</p>
             <ul className="space-y-2 text-xs text-slate-600">
-              <li><Link href="/" className="hover:text-indigo-600 transition-colors">Home Landing</Link></li>
-              <li><Link href="/dashboard" className="hover:text-indigo-600 transition-colors font-semibold text-indigo-600">Intelligence Dashboard</Link></li>
-              <li><Link href="/live-wire" className="hover:text-indigo-600 transition-colors">Live Wire Terminal</Link></li>
-              <li><Link href="/story-timeline" className="hover:text-indigo-600 transition-colors">Story Timeline & Evolution</Link></li>
-              <li><Link href="/world-regions" className="hover:text-indigo-600 transition-colors">Regional World Map</Link></li>
-              <li><Link href="/audio-briefing" className="hover:text-indigo-600 transition-colors">Audio Podcast Studio</Link></li>
+              <li><Link href="/" className="hover:text-indigo-600 transition-colors">Home Overview</Link></li>
+              <li><Link href="/dashboard" className="hover:text-indigo-600 transition-colors font-semibold text-indigo-600">News Dashboard</Link></li>
+              <li><Link href="/live-wire" className="hover:text-indigo-600 transition-colors">Live Breaking News</Link></li>
+              <li><Link href="/story-timeline" className="hover:text-indigo-600 transition-colors">How Stories Develop</Link></li>
+              <li><Link href="/world-regions" className="hover:text-indigo-600 transition-colors">World News Map</Link></li>
+              <li><Link href="/audio-briefing" className="hover:text-indigo-600 transition-colors">Daily Audio Briefing</Link></li>
             </ul>
           </div>
 
           {/* AI Intelligence Hub */}
           <div className="space-y-3">
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">AI Intelligence</p>
+            <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">AI Features</p>
             <ul className="space-y-2 text-xs text-slate-600">
-              <li><Link href="/ai-insights" className="hover:text-indigo-600 transition-colors">Perspective Radar & Blindspots</Link></li>
-              <li><Link href="/fact-checker" className="hover:text-indigo-600 transition-colors">Claim Verifier & Debunk Hub</Link></li>
-              <li><Link href="/topic-radar" className="hover:text-indigo-600 transition-colors">Custom Entity Radar</Link></li>
-              <li><Link href="/dossier-builder" className="hover:text-indigo-600 transition-colors">Executive Dossier Builder</Link></li>
-              <li><Link href="/media-index" className="hover:text-indigo-600 transition-colors">2D Media Bias Scatter Plot</Link></li>
-              <li><Link href="/news-quiz" className="hover:text-indigo-600 transition-colors">Current Events IQ Quiz</Link></li>
+              <li><Link href="/ai-insights" className="hover:text-indigo-600 transition-colors">Different News Perspectives</Link></li>
+              <li><Link href="/fact-checker" className="hover:text-indigo-600 transition-colors">Fact-Check Verifier</Link></li>
+              <li><Link href="/topic-radar" className="hover:text-indigo-600 transition-colors">Trending Topics Tracker</Link></li>
+              <li><Link href="/dossier-builder" className="hover:text-indigo-600 transition-colors">Download News Reports</Link></li>
+              <li><Link href="/media-index" className="hover:text-indigo-600 transition-colors">Media Coverage Comparison</Link></li>
+              <li><Link href="/news-quiz" className="hover:text-indigo-600 transition-colors">Weekly News Quiz</Link></li>
             </ul>
           </div>
 
           {/* Trust & Transparency */}
           <div className="space-y-3">
-            <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">Trust & Systems</p>
+            <p className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900">Trust & Transparency</p>
             <ul className="space-y-2 text-xs text-slate-600">
               <li><Link href="/news-sources" className="hover:text-indigo-600 transition-colors">25+ Trusted News Sources</Link></li>
-              <li><Link href="/methodology" className="hover:text-indigo-600 transition-colors">AI Ethics & Fact-Check Math</Link></li>
-              <li><Link href="/saved-articles" className="hover:text-indigo-600 transition-colors">Saved Bookmarks</Link></li>
-              <li><Link href="/settings" className="hover:text-indigo-600 transition-colors">API Keys & Preferences</Link></li>
+              <li><Link href="/methodology" className="hover:text-indigo-600 transition-colors">How We Verify Facts</Link></li>
+              <li><Link href="/saved-articles" className="hover:text-indigo-600 transition-colors">Saved Articles</Link></li>
+              <li><Link href="/settings" className="hover:text-indigo-600 transition-colors">Account Settings</Link></li>
             </ul>
           </div>
         </div>
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-4 mt-4 sm:mt-0">
             <span>Aggregating Reuters, AP, BBC, Bloomberg & MIT Tech</span>
             <span>•</span>
-            <span className="text-indigo-600 font-medium">Zero Hallucination Strict Wires</span>
+            <span className="text-emerald-700 font-medium">100% Fact-Checked News</span>
           </div>
         </div>
       </div>

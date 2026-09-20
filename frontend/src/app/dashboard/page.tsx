@@ -90,10 +90,10 @@ export default function MasterDashboardPage() {
         <div>
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] font-mono font-bold tracking-wider text-emerald-700 uppercase">Live Intelligence Command Center</span>
+            <span className="text-[11px] font-mono font-bold tracking-wider text-emerald-700 uppercase">Live News Hub</span>
           </div>
-          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading mt-0.5">Global Intelligence Dashboard</h1>
-          <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Synthesizing 25+ Tier-1 wire feeds, multi-anchor voice scripts, and defensible claim verifications.</p>
+          <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-heading mt-0.5">Global News Dashboard</h1>
+          <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Real-time news from 25+ trusted global newsrooms, verified and summarized by AI.</p>
         </div>
 
         {/* Quick Shortcut Buttons */}
@@ -103,7 +103,7 @@ export default function MasterDashboardPage() {
             className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-300 transition-all shadow-xs"
           >
             <Radio className="h-3 w-3 text-rose-600" />
-            <span>Live Wire Terminal</span>
+            <span>Live Breaking News</span>
           </Link>
 
           <Link
@@ -111,7 +111,7 @@ export default function MasterDashboardPage() {
             className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-300 transition-all shadow-xs"
           >
             <Headphones className="h-3 w-3 text-purple-600" />
-            <span>Audio Studio</span>
+            <span>Audio News</span>
           </Link>
 
           <Link
@@ -119,7 +119,7 @@ export default function MasterDashboardPage() {
             className="flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-1 text-xs font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-300 transition-all shadow-xs"
           >
             <Sparkles className="h-3 w-3 text-indigo-600" />
-            <span>Perspective Matrix</span>
+            <span>Compare Views</span>
           </Link>
 
           <button
@@ -127,7 +127,7 @@ export default function MasterDashboardPage() {
             className="flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700 hover:bg-indigo-100 transition-all shadow-xs"
           >
             <RefreshCw className={`h-3 w-3 ${loading ? 'animate-spin text-indigo-600' : ''}`} />
-            <span>Sync Feeds</span>
+            <span>Refresh</span>
           </button>
         </div>
       </div>
@@ -138,7 +138,7 @@ export default function MasterDashboardPage() {
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-700 flex items-center gap-1.5">
               <Sparkles className="h-3 w-3" />
-              <span>Section 1: Daily Executive Synthesis</span>
+              <span>Today&apos;s 60-Second AI Briefing</span>
             </span>
           </div>
           <DailyExecutiveDigest briefing={briefing} />
@@ -152,7 +152,7 @@ export default function MasterDashboardPage() {
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-700 flex items-center gap-1.5">
               <Zap className="h-3 w-3" />
-              <span>World Hero Headline</span>
+              <span>Top Story of the Day</span>
             </span>
           </div>
           {featuredArticle && !loading ? (
@@ -167,9 +167,9 @@ export default function MasterDashboardPage() {
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-purple-700 flex items-center gap-1.5">
               <Headphones className="h-3 w-3" />
-              <span>Multi-Anchor Radio Studio</span>
+              <span>Daily Audio Broadcast</span>
             </span>
-            <Link href="/audio-briefing" className="text-[10px] text-purple-600 font-semibold hover:underline">Full Studio &rarr;</Link>
+            <Link href="/audio-briefing" className="text-[10px] text-purple-600 font-semibold hover:underline">Full Audio &rarr;</Link>
           </div>
           {podcast ? (
             <MultiAnchorVoicePlayer script={podcast} />
@@ -185,9 +185,9 @@ export default function MasterDashboardPage() {
           <div>
             <h2 className="text-lg font-bold text-slate-900 font-heading flex items-center gap-2">
               <Globe className="h-4 w-4 text-indigo-600" />
-              <span>Accredited Global News Feed</span>
+              <span>Top World News</span>
             </h2>
-            <p className="text-[11px] text-slate-500 mt-0.5">Filter by category or isolate raw Tier-1 wire dispatches (Reuters, AP, BBC, FT, CNA)</p>
+            <p className="text-[11px] text-slate-500 mt-0.5">Filter by category or view verified stories from Reuters, AP, BBC & Bloomberg</p>
           </div>
         </div>
 
@@ -213,9 +213,9 @@ export default function MasterDashboardPage() {
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
               <ShieldCheck className="h-3 w-3" />
-              <span>Claim Verifier (5-Tier Taxonomy)</span>
+              <span>AI Fact-Check Verifier</span>
             </span>
-            <Link href="/fact-checker" className="text-[10px] text-emerald-600 font-semibold hover:underline">View Hub &rarr;</Link>
+            <Link href="/fact-checker" className="text-[10px] text-emerald-600 font-semibold hover:underline">View All &rarr;</Link>
           </div>
           {factReport ? (
             <FactCheckInspector report={factReport} />
@@ -229,9 +229,9 @@ export default function MasterDashboardPage() {
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-indigo-700 flex items-center gap-1.5">
               <Compass className="h-3 w-3" />
-              <span>Continental Geopolitical Mood Map</span>
+              <span>World News Mood & Trends</span>
             </span>
-            <Link href="/world-regions" className="text-[10px] text-indigo-600 font-semibold hover:underline">Explore Regions &rarr;</Link>
+            <Link href="/world-regions" className="text-[10px] text-indigo-600 font-semibold hover:underline">Explore Map &rarr;</Link>
           </div>
           <GlobalSentimentMap regions={regions} />
         </div>
@@ -242,9 +242,9 @@ export default function MasterDashboardPage() {
         <div className="flex items-center justify-between">
           <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-amber-700 flex items-center gap-1.5">
             <HelpCircle className="h-3 w-3" />
-            <span>Weekly Current Events IQ Challenge</span>
+            <span>Weekly News Quiz Challenge</span>
           </span>
-          <Link href="/news-quiz" className="text-[10px] text-amber-600 font-semibold hover:underline">Full Quiz Arena &rarr;</Link>
+          <Link href="/news-quiz" className="text-[10px] text-amber-600 font-semibold hover:underline">Play Quiz &rarr;</Link>
         </div>
         <NewsQuizWidget />
       </section>

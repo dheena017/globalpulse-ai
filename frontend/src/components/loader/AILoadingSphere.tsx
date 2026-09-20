@@ -15,11 +15,11 @@ export const AILoadingSphere: React.FC<AILoadingSphereProps> = ({
   const [telemetryIndex, setTelemetryIndex] = useState(0);
 
   const telemetrySteps = [
-    "Establishing encrypted stream to Reuters & AP satellites...",
-    "Ingesting 25+ Tier-1 accredited global wire feeds...",
-    "Running neural claim extraction & cross-wire fact verifier...",
-    "Computing regional geopolitical sentiment & bias radar...",
-    "Synthesizing 60-second executive global digest..."
+    "Connecting to Reuters, Associated Press & BBC live feeds...",
+    "Fetching latest breaking stories from 25+ global newsrooms...",
+    "Fact-checking news claims across multiple sources...",
+    "Analyzing world perspectives and regional news trends...",
+    "Preparing your 60-second daily executive briefing..."
   ];
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const AILoadingSphere: React.FC<AILoadingSphereProps> = ({
 
       <h3 className="mb-2 text-xl font-bold font-heading text-slate-900 flex items-center gap-2">
         <Sparkles className="h-5 w-5 text-indigo-600" />
-        GlobalPulse AI Neural Engine
+        GlobalPulse AI News Engine
       </h3>
 
       <p className="text-sm font-medium text-indigo-600 mb-6">{statusMessage}</p>
@@ -53,13 +53,13 @@ export const AILoadingSphere: React.FC<AILoadingSphereProps> = ({
       {/* Live Telemetry Stream */}
       <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-4 shadow-md">
         <div className="flex items-center justify-between text-[11px] text-slate-500 border-b border-slate-100 pb-2 mb-2 font-medium">
-          <span className="flex items-center gap-1.5 font-mono text-indigo-600 font-bold">
-            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
-            LIVE PIPELINE
+          <span className="flex items-center gap-1.5 text-indigo-600 font-bold">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+            LIVE NEWS STREAM
           </span>
-          <span className="font-mono text-slate-400">PORT: 8000 (FASTAPI)</span>
+          <span className="text-emerald-700 font-semibold font-mono">ONLINE</span>
         </div>
-        <p className="font-mono text-xs text-slate-700 text-left transition-all duration-300 min-h-[32px] flex items-center gap-2">
+        <p className="text-xs text-slate-700 text-left transition-all duration-300 min-h-[32px] flex items-center gap-2">
           <Cpu className="h-3.5 w-3.5 text-indigo-600 flex-shrink-0" />
           <span>{telemetrySteps[telemetryIndex]}</span>
         </p>

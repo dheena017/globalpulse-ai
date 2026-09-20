@@ -20,34 +20,34 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, onClose }
 
   const navGroups = [
     {
-      title: "Core Intelligence",
+      title: "News & Wires",
       items: [
         { name: "Dashboard", href: "/dashboard", icon: Sparkles, badge: "Live" },
-        { name: "Live Wire", href: "/live-wire", icon: Radio, badge: "Urgent", badgeColor: "bg-rose-50 text-rose-700 border-rose-200" },
+        { name: "Live Wire", href: "/live-wire", icon: Radio, badge: "Breaking", badgeColor: "bg-rose-50 text-rose-700 border-rose-200" },
         { name: "Story Timeline", href: "/story-timeline", icon: Layers },
-        { name: "AI Insights", href: "/ai-insights", icon: Compass },
+        { name: "AI Perspectives", href: "/ai-insights", icon: Compass },
       ]
     },
     {
-      title: "Analysis & Audio",
+      title: "Audio & Regions",
       items: [
-        { name: "Audio Radio", href: "/audio-briefing", icon: Headphones, badge: "Voice" },
-        { name: "World Regions", href: "/world-regions", icon: Globe },
-        { name: "Topic Radar", href: "/topic-radar", icon: Activity },
-        { name: "Media Index", href: "/media-index", icon: PieChart },
+        { name: "Audio News", href: "/audio-briefing", icon: Headphones, badge: "Listen" },
+        { name: "World Map", href: "/world-regions", icon: Globe },
+        { name: "Trending Topics", href: "/topic-radar", icon: Activity },
+        { name: "Media Comparison", href: "/media-index", icon: PieChart },
       ]
     },
     {
-      title: "Verification & Tools",
+      title: "Fact Check & Tools",
       items: [
-        { name: "Fact Checker", href: "/fact-checker", icon: ShieldCheck, badge: "99%" },
-        { name: "Dossier Builder", href: "/dossier-builder", icon: FileText },
-        { name: "News IQ Quiz", href: "/news-quiz", icon: HelpCircle },
-        { name: "News Sources", href: "/news-sources", icon: BookOpen },
+        { name: "Fact Checker", href: "/fact-checker", icon: ShieldCheck, badge: "Verified" },
+        { name: "Create Report", href: "/dossier-builder", icon: FileText },
+        { name: "Weekly Quiz", href: "/news-quiz", icon: HelpCircle },
+        { name: "Trusted Sources", href: "/news-sources", icon: BookOpen },
       ]
     },
     {
-      title: "Personal Workspace",
+      title: "My Workspace",
       items: [
         { name: "Saved Articles", href: "/saved-articles", icon: Bookmark },
         { name: "Settings", href: "/settings", icon: Settings },
@@ -64,7 +64,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, onClose }
       {/* Mobile Top Header (only when onClose provided) */}
       {onClose && (
         <div className="flex md:hidden items-center justify-between px-3 py-2 border-b border-slate-200">
-          <span className="text-xs font-bold text-slate-900 font-heading">Navigation</span>
+          <span className="text-xs font-bold text-slate-900 font-heading">Menu</span>
           <button
             onClick={onClose}
             className="rounded-lg p-1 text-slate-500 hover:bg-slate-100"
@@ -133,14 +133,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, onClose }
       <div className="border-t border-slate-200/80 p-2.5 bg-slate-50/70">
         {!collapsed && (
           <div className="mb-2 rounded-lg border border-slate-200 bg-white p-2 text-[10px] shadow-xs">
-            <div className="flex items-center justify-between text-slate-500 font-mono mb-1">
+            <div className="flex items-center justify-between text-slate-500 font-mono mb-0.5">
               <span className="flex items-center gap-1 font-bold text-emerald-600">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                NEURAL ENGINE
+                LIVE NEWS VERIFIER
               </span>
-              <span>v2.0</span>
+              <span className="text-slate-400">ACTIVE</span>
             </div>
-            <p className="text-slate-400 text-[9px] leading-tight">25+ Tier-1 Wire Feeds active</p>
+            <p className="text-slate-500 text-[9px] leading-tight">25+ Global Bureaus Connected</p>
           </div>
         )}
 
