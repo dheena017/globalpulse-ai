@@ -144,20 +144,32 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, onClose }
           </div>
         )}
 
-        <button
-          onClick={onToggle}
-          className="flex w-full items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-indigo-600 transition-all shadow-xs"
-          title={collapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-        >
-          {collapsed ? (
-            <ChevronRight className="h-4 w-4" />
-          ) : (
-            <>
-              <ChevronLeft className="h-3.5 w-3.5" />
-              <span className="text-[11px]">Collapse</span>
-            </>
+        <div className="flex items-center gap-1.5">
+          <button
+            onClick={onToggle}
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 hover:text-indigo-600 transition-all shadow-xs"
+            title={collapsed ? "Expand Sidebar" : "Collapse to Icons"}
+          >
+            {collapsed ? (
+              <ChevronRight className="h-4 w-4" />
+            ) : (
+              <>
+                <ChevronLeft className="h-3.5 w-3.5" />
+                <span className="text-[11px]">Compact</span>
+              </>
+            )}
+          </button>
+
+          {!collapsed && onClose && (
+            <button
+              onClick={onClose}
+              className="flex items-center justify-center rounded-lg border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-500 hover:bg-rose-50 hover:text-rose-600 hover:border-rose-200 transition-all shadow-xs"
+              title="Close Sidebar Completely"
+            >
+              <span className="text-[11px]">Hide</span>
+            </button>
           )}
-        </button>
+        </div>
       </div>
     </aside>
   );

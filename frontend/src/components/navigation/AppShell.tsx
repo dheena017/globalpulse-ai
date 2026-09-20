@@ -14,25 +14,56 @@ interface AppShellProps {
 
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const pathname = usePathname();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+
+  // Load saved sidebar state on mount
+  React.useEffect(() => {
+    try {
+      const savedOpen = localStorage.getItem('globalpulse_sidebar_open');
+      if (savedOpen !== null) setSidebarOpen(savedOpen === 'true');
+      const savedCollapsed = localStorage.getItem('globalpulse_sidebar_collapsed');
+      if (savedCollapsed !== null) setSidebarCollapsed(savedCollapsed === 'true');
+    } catch {}
+  }, []);
 
   // Close mobile drawer on route change
   React.useEffect(() => {
     setMobileDrawerOpen(false);
   }, [pathname]);
 
-  // Global Keyboard Shortcut: Cmd+B / Ctrl+B to toggle sidebar
+  // Global Keyboard Shortcut: Cmd+B / Ctrl+B to toggle sidebar open/close
   React.useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'b') {
         e.preventDefault();
-        setSidebarCollapsed((prev) => !prev);
+        toggleSidebar();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [sidebarOpen]);
+
+  const toggleSidebar = () => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      setMobileDrawerOpen((prev) => !prev);
+    } else {
+      setSidebarOpen((prev) => {
+        const next = !prev;
+        try { localStorage.setItem('globalpulse_sidebar_open', String(next)); } catch {}
+        return next;
+      });
+    }
+  };
+
+  const toggleCollapse = () => {
+    setSidebarCollapsed((prev) => {
+      const next = !prev;
+      try { localStorage.setItem('globalpulse_sidebar_collapsed', String(next)); } catch {}
+      return next;
+    });
+  };
 
   const isLandingPage = pathname === '/' || pathname === '/landing';
 
@@ -50,27 +81,32 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
     );
   }
 
-  const handleToggle = () => {
-    // If on small screen, toggle mobile drawer, else toggle desktop collapse
-    if (typeof window !== 'undefined' && window.innerWidth < 768) {
-      setMobileDrawerOpen((prev) => !prev);
-    } else {
-      setSidebarCollapsed((prev) => !prev);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
-      <NavigationBar onToggleSidebar={handleToggle} />
+      <NavigationBar onToggleSidebar={toggleSidebar} />
       <BreakingTicker />
 
-      <div className="flex w-full flex-1 relative">
-        {/* Desktop Sticky Sidebar */}
-        <div className="hidden md:block sticky top-[45px] h-[calc(100vh-45px)] z-30">
-          <Sidebar
-            collapsed={sidebarCollapsed}
-            onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
-          />
+      <div className="flex w-full flex-1 relative overflow-hidden">
+        {/* Desktop Sticky Animated Sidebar */}
+        <div
+          className={`hidden md:block sticky top-[45px] h-[calc(100vh-45px)] z-30 transition-all duration-300 ease-in-out ${
+            !sidebarOpen
+              ? 'w-0 opacity-0 -translate-x-full overflow-hidden border-none pointer-events-none'
+              : sidebarCollapsed
+              ? 'w-16 opacity-100 translate-x-0'
+              : 'w-60 opacity-100 translate-x-0'
+          }`}
+        >
+          {sidebarOpen && (
+            <Sidebar
+              collapsed={sidebarCollapsed}
+              onToggle={toggleCollapse}
+              onClose={() => {
+                setSidebarOpen(false);
+                try { localStorage.setItem('globalpulse_sidebar_open', 'false'); } catch {}
+              }}
+            />
+          )}
         </div>
 
         {/* Mobile Slide-over Drawer & Overlay */}
@@ -78,7 +114,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
           <div className="fixed inset-0 z-50 flex md:hidden">
             {/* Backdrop */}
             <div
-              className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity"
+              className="fixed inset-0 bg-slate-900/40 backdrop-blur-xs transition-opacity animate-in fade-in"
               onClick={() => setMobileDrawerOpen(false)}
             />
 
@@ -94,7 +130,7 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
         )}
 
         {/* Main Content Area */}
-        <main className="flex-1 min-w-0 px-3 py-4 sm:px-5 lg:px-6 max-w-[1600px] mx-auto">
+        <main className="flex-1 min-w-0 px-3 py-4 sm:px-5 lg:px-6 max-w-[1600px] mx-auto transition-all duration-300">
           {children}
         </main>
       </div>
