@@ -12,9 +12,10 @@ import {
 interface SidebarProps {
   collapsed: boolean;
   onToggle: () => void;
+  onClose?: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, onClose }) => {
   const pathname = usePathname();
 
   const navGroups = [
@@ -56,10 +57,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
 
   return (
     <aside
-      className={`sticky top-[45px] h-[calc(100vh-45px)] flex flex-col justify-between border-r border-slate-200/90 bg-white/95 backdrop-blur-xl shadow-[2px_0_12px_rgba(15,23,42,0.02)] transition-all duration-300 z-30 flex-shrink-0 ${
+      className={`h-full flex flex-col justify-between border-r border-slate-200/90 bg-white/95 backdrop-blur-xl shadow-[2px_0_12px_rgba(15,23,42,0.02)] transition-all duration-300 z-30 flex-shrink-0 ${
         collapsed ? "w-16" : "w-60"
       }`}
     >
+      {/* Mobile Top Header (only when onClose provided) */}
+      {onClose && (
+        <div className="flex md:hidden items-center justify-between px-3 py-2 border-b border-slate-200">
+          <span className="text-xs font-bold text-slate-900 font-heading">Navigation</span>
+          <button
+            onClick={onClose}
+            className="rounded-lg p-1 text-slate-500 hover:bg-slate-100"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+        </div>
+      )}
+
       {/* Top Navigation Content */}
       <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-3.5">
         {navGroups.map((group, gIdx) => (

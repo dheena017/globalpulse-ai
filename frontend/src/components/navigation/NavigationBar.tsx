@@ -48,7 +48,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({ onToggleSidebar })
             {onToggleSidebar && (
               <button
                 onClick={onToggleSidebar}
-                className="hidden md:flex items-center justify-center h-7 w-7 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-indigo-600 transition-colors shadow-xs"
+                className="flex items-center justify-center h-7 w-7 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100 hover:text-indigo-600 transition-colors shadow-xs"
                 title="Toggle Sidebar (⌘B)"
               >
                 <PanelLeft className="h-4 w-4" />
