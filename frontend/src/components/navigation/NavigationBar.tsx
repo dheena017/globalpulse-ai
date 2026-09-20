@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Globe, Search, Radio, Sparkles, BookOpen, ShieldCheck, Compass, Layers, Menu, Moon, Sun, Headphones, PanelLeft } from 'lucide-react';
+import { Globe, Search, Radio, Sparkles, BookOpen, ShieldCheck, Compass, Layers, Menu, Moon, Sun, Headphones, PanelLeft, Clock } from 'lucide-react';
 import { UserMenuDropdown } from '@/components/auth/UserMenuDropdown';
 import { CommandPalette } from './CommandPalette';
 import { MobileMenu } from './MobileMenu';
