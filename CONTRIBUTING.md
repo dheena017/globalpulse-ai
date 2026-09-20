@@ -8,7 +8,7 @@ Thank you for your interest in contributing to **GlobalPulse AI**! We welcome co
 
 1. **Fork and Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/globalpulse-ai.git
+   git clone https://github.com/dheena017/globalpulse-ai.git
    cd globalpulse-ai
    ```
 

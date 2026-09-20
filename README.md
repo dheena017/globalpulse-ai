@@ -1,6 +1,6 @@
 # 🌐 GlobalPulse AI — Enterprise AI World News Intelligence Platform
 
-[![CI/CD](https://github.com/dheen/globalpulse-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/dheen/globalpulse-ai/actions)
+[![CI/CD](https://github.com/dheena017/globalpulse-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/dheena017/globalpulse-ai/actions)
 [![Next.js](https://img.shields.io/badge/Next.js-14.2-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python)](https://python.org)
@@ -37,7 +37,7 @@ An enterprise-grade, security-hardened World News Intelligence Platform with a *
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/your-username/globalpulse-ai.git
+git clone https://github.com/dheena017/globalpulse-ai.git
 cd globalpulse-ai
 ```
 
