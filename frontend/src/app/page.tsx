@@ -86,10 +86,10 @@ export default function LandingPage() {
         {/* Main Call to Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <Link
-            href="/dashboard"
+            href="/login"
             className="flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md shadow-indigo-500/20 hover:opacity-95 hover:scale-[1.01] transition-all"
           >
-            <span>Launch Intelligence Dashboard</span>
+            <span>Sign In & Launch Dashboard</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
 

@@ -16,6 +16,18 @@ const DEFAULT_GUEST: UserProfile = {
   created_at: '2026-09-01'
 };
 
+export function isAuthenticated(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const raw = localStorage.getItem(AUTH_KEY);
+    if (!raw) return false;
+    const user = JSON.parse(raw);
+    return Boolean(user && user.id && user.id !== 'guest_default');
+  } catch {
+    return false;
+  }
+}
+
 export function getStoredUser(): UserProfile {
   if (typeof window === 'undefined') return DEFAULT_GUEST;
   try {

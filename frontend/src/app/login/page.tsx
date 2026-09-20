@@ -32,40 +32,40 @@ export default function LoginPage() {
       };
       setStoredUser(user);
       setLoading(false);
-      router.push('/');
-    }, 500);
+      router.push('/dashboard');
+    }, 400);
   };
 
-  const handleGuestLogin = () => {
-    const guestUser = {
-      id: 'guest_observer',
-      email: 'guest@globalpulse.ai',
-      name: 'Global Observer (Guest)',
+  const handleExecutiveLogin = () => {
+    const execUser = {
+      id: 'exec_analyst_01',
+      email: 'alex.chen@globalpulse.ai',
+      name: 'Alex Chen (Senior Intelligence Analyst)',
       avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
-      is_guest: true,
+      is_guest: false,
       preferred_categories: ['world', 'technology', 'business', 'science'],
-      saved_articles_count: 0,
-      reading_streak_days: 1,
+      saved_articles_count: 4,
+      reading_streak_days: 7,
       created_at: '2026-09-01'
     };
-    setStoredUser(guestUser);
-    router.push('/');
+    setStoredUser(execUser);
+    router.push('/dashboard');
   };
 
   return (
-    <div className="py-12 flex items-center justify-center">
-      <GlassCard glowColor="indigo" className="w-full max-w-md p-8 space-y-6 bg-white border border-slate-200/90 shadow-xl">
+    <div className="py-8 sm:py-12 flex items-center justify-center">
+      <GlassCard glowColor="indigo" className="w-full max-w-md p-6 sm:p-8 space-y-5 bg-white border border-slate-200/90 shadow-xl rounded-2xl">
         {/* Brand Header */}
-        <div className="text-center space-y-2">
-          <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-tr from-indigo-600 via-sky-500 to-purple-600 text-white shadow-md shadow-indigo-500/20">
-            <Globe className="h-6 w-6" />
+        <div className="text-center space-y-1.5">
+          <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 via-sky-500 to-purple-600 text-white shadow-md shadow-indigo-500/20">
+            <Globe className="h-5 w-5" />
           </div>
-          <h2 className="text-2xl font-black text-slate-900 font-heading">Access Intelligence Portal</h2>
-          <p className="text-xs text-slate-500">Sign in to unlock personalized radars, bookmarks & AI briefings</p>
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 font-heading">Access Intelligence Portal</h2>
+          <p className="text-xs text-slate-500">Sign in to unlock live wire streams, AI dossiers, and voice broadcasts</p>
         </div>
 
         {/* Google Sign In */}
-        <div className="space-y-4">
+        <div className="space-y-3.5">
           <GoogleSignInButton onSuccess={() => router.push('/dashboard')} />
 
           <div className="flex items-center gap-3">
@@ -109,14 +109,14 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* Instant Guest Mode */}
-          <div className="border-t border-slate-100 pt-4 text-center">
+          {/* 1-Click Instant Executive Demo Access */}
+          <div className="border-t border-slate-100 pt-3.5 text-center">
             <button
-              onClick={handleGuestLogin}
-              className="flex w-full items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 py-3 text-xs font-bold text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-all shadow-xs"
+              onClick={handleExecutiveLogin}
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-indigo-50 py-2.5 text-xs font-bold text-indigo-700 hover:bg-indigo-100 hover:text-indigo-900 transition-all shadow-xs"
             >
-              <UserCheck className="h-4 w-4 text-emerald-600" />
-              <span>Explore Instantly as Guest</span>
+              <UserCheck className="h-4 w-4 text-indigo-600" />
+              <span>1-Click Executive Access (Instant Entry)</span>
             </button>
           </div>
         </div>

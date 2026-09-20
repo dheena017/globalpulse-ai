@@ -81,10 +81,10 @@ export const LandingHeader: React.FC = () => {
           </Link>
 
           <Link
-            href="/dashboard"
+            href="/login"
             className="flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-indigo-500/20 hover:opacity-95 hover:scale-[1.02] transition-all"
           >
-            <span>Launch Platform</span>
+            <span>Sign In / Launch</span>
             <ArrowRight className="h-3.5 w-3.5" />
           </Link>
 
