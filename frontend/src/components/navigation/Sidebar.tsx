@@ -56,16 +56,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
 
   return (
     <aside
-      className={`sticky top-[49px] h-[calc(100vh-49px)] flex flex-col justify-between border-r border-slate-200/90 bg-white/95 backdrop-blur-xl transition-all duration-300 z-30 flex-shrink-0 ${
+      className={`sticky top-[45px] h-[calc(100vh-45px)] flex flex-col justify-between border-r border-slate-200/90 bg-white/95 backdrop-blur-xl shadow-[2px_0_12px_rgba(15,23,42,0.02)] transition-all duration-300 z-30 flex-shrink-0 ${
         collapsed ? "w-16" : "w-60"
       }`}
     >
       {/* Top Navigation Content */}
-      <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-4">
+      <div className="flex-1 overflow-y-auto px-2.5 py-3 space-y-3.5">
         {navGroups.map((group, gIdx) => (
           <div key={gIdx} className="space-y-1">
             {!collapsed && (
-              <p className="px-2 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+              <p className="px-2.5 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
                 {group.title}
               </p>
             )}
@@ -82,13 +82,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
                     title={collapsed ? item.name : undefined}
                     className={`group flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-xs font-medium transition-all ${
                       isActive
-                        ? "bg-indigo-50 text-indigo-700 font-bold border border-indigo-200/80 shadow-xs"
-                        : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                        ? "bg-indigo-600 text-white font-bold shadow-sm shadow-indigo-500/25"
+                        : "text-slate-600 hover:bg-indigo-50/60 hover:text-indigo-700"
                     }`}
                   >
                     <Icon
                       className={`h-4 w-4 flex-shrink-0 transition-colors ${
-                        isActive ? "text-indigo-600" : "text-slate-400 group-hover:text-slate-700"
+                        isActive ? "text-white" : "text-slate-400 group-hover:text-indigo-600"
                       }`}
                     />
 
@@ -99,7 +99,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
                     {!collapsed && item.badge && (
                       <span
                         className={`rounded-full px-1.5 py-0.2 text-[9px] font-bold border ${
-                          item.badgeColor || "bg-indigo-50 text-indigo-700 border-indigo-200"
+                          isActive
+                            ? "bg-indigo-700 text-white border-indigo-500"
+                            : (item.badgeColor || "bg-indigo-50 text-indigo-700 border-indigo-200")
                         }`}
                       >
                         {item.badge}
